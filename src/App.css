@@ -152,11 +152,11 @@
   background-color: #138cf3;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .Navbar{
     background-color: aqua;
     margin-top: 0;
-    width: 545px;
+    width: 580px;
     height: 60px;
   }
   
