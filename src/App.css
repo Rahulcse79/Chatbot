@@ -151,3 +151,21 @@
   margin-bottom: 10px;
   background-color: #138cf3;
 }
+
+@media screen and (max-width: 480px) {
+  .Navbar{
+    background-color: aqua;
+    margin-top: 0;
+    width: 545px;
+    height: 60px;
+  }
+  
+.buttonextra {
+  height: 70px;
+}
+
+.button1name{
+  margin-left: 90%;
+}
+
+}
