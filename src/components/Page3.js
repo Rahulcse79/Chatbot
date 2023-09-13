@@ -1,12 +1,16 @@
 import React from 'react'
-import Navbar from './Navbar'
+
 
 export default function Page3() {
+
+  const name = localStorage.getItem('userName');
+  const age = localStorage.getItem('userAge');
+  const clear = localStorage.clear();;
   return (
     <div>
       <>
-      <Navbar/>
-      <p className='lastCall'> Your name {} aged {} has been added to student system. You may now exit.</p>
+      <p className='lastCall'> Your name {name} aged {age} has been added to student system. You may now exit.</p>
+      {clear}
       </>
     </div>
   )

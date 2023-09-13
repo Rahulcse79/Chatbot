@@ -126,12 +126,21 @@
 
 .lastCall{
   color: black;
-  background-color: #10fac0;
-  width: 500px;
-  margin-left: auto;
-  border: 1px solid #37cfb8;
+    background-color: #10fac0;
+    width: 500px;
+    margin-left: 40px;
+    border: 1px solid #37cfb8;
+    margin-top: 50px;
 }
 
+.buttonextra2{
+    color: black;
+    background-color: #138cf3;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: 1px solid aliceblue;
+}
 .buttonextra{
   border: 1px solid cadetblue;
   color: black;

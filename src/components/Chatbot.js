@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Navbar from "./Navbar"
+import { useNavigate } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export default function Chatbot() {
+  const navigate = useNavigate();
   const [name,setName]=useState("");
-  const [message, setMessage] = useState(null);
   const [message1, setMessage1] = useState(null);
-  const [showGotItButton, setShowGotItButton] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
   const [showTime1, setShowTime1] = useState(false);
   const [showTime3, setShowTime3] = useState(false);
@@ -14,24 +14,17 @@ export default function Chatbot() {
   const [nameCall1, setnameCall1] = useState(false);
   const [ageCall1, setAgeCall1] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedAge, setSelectedAge] = useState(null); //after i will use for print
   const [callThanks, setCallThanks] = useState(false);
 
   const AgeSelect = (age) => {
-    setSelectedAge(age);
     setCallThanks(true);
+    localStorage.setItem("userAge",JSON.stringify(age));
+    localStorage.setItem("userName",JSON.stringify(name));
+    setTimeout(() => {
+      navigate("/Page3");
+    }, 500);
   }
 
-  const handleEnrollClick = () => {
-    setTimeout(() => {
-      setMessage(
-        <div className='classbot'>
-          <p> Bot: &nbsp; Hello, Welcome to student info system! </p>
-        </div>
-      );
-      setShowGotItButton(true);
-    }, 300);
-  }  
 
   const handleGotItClick = () => {
     setMessage1(
@@ -41,15 +34,25 @@ export default function Chatbot() {
     setShowCalendar(true);
   }
 
-  
   const AgeSelect1 = () => {
-    const buttons = [];
-    for (let age = 18; age <= 40; age++) {
-      buttons.push(
-        <button key={age} className="dropdown-item buttonextra" type="button" onClick={() => AgeSelect(age)}>{age}</button>
-      );
+    const items = [];
+    let startAge = 18;
+    let endAge = 23;
+  
+    for (let row = 1; row <= 6; row++) {
+      const rowItems = [];
+      for (let age = startAge; age <= endAge; age++) {
+        if(age<41)
+        rowItems.push(
+          <Dropdown.Item key={age} onClick={() => AgeSelect(age)} className='buttonextra2'>{age}</Dropdown.Item>
+        );
+      }
+      items.push(<div key={row} className="row">{rowItems}</div>);
+      startAge = endAge + 1;
+      endAge += 6;
     }
-    return buttons;
+  
+    return items;
   }
 
   const genTime = (sH, eH) => {
@@ -68,7 +71,6 @@ export default function Chatbot() {
 
   const ageCall=()=>{
     setAgeCall1(true);
-    // console.log(`Age Call function is called for ${name} with age ${selectedAge}`);
   }
 
   const ageCallKey = (e) => {
@@ -109,15 +111,11 @@ export default function Chatbot() {
 
   return (
     <div>
-      <><Navbar/>
+      <>
       <div className='classbot'>
-        <p>Enter into Student Info System</p>
+        <p> Bot: &nbsp; Hello, Welcome to student info system! </p>
       </div>
-      <div>
-        <button className='button1' type='button' onClick={handleEnrollClick}>Enroll Now!</button>
-      </div>
-      {message} 
-      {showGotItButton && <button className='button1' type='button' onClick={handleGotItClick}>Got it!</button>}
+      <button className='button1' type='button' onClick={handleGotItClick}>Got it!</button>
       {message1} 
 {showCalendar && ( <div className='Navbar2'>
   <button className='button12'onClick={() => navigateDate('prev')}disabled={new Date(currentDate).getDate() === new Date().getDate()}>{'<'}</button>
@@ -147,17 +145,12 @@ export default function Chatbot() {
       </div>
   </div>)}
 
-  {  ageCall1 && (<div>
-      <div className='classbot'>
-        <p> Bot: &nbsp; Enter your Age </p>
-      </div>
-      <div className="btn-group">
-      <button type="button" className="btn btn-secondary dropdown-toggle buttonextra" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">Age</button>
-      <div className="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-        {AgeSelect1()}
-      </div>
-      </div>
-  </div>)}
+  {  ageCall1 && (<Dropdown Drop="Down">
+      <Dropdown.Toggle variant="success" className='buttonextra' id="dropdown-basic">Age</Dropdown.Toggle>
+      <Dropdown.Menu>
+      {AgeSelect1()}
+      </Dropdown.Menu>
+      </Dropdown>)}
 
     {callThanks && <div className='classbot'>
         <p> Bot: &nbsp; Thank you </p>
