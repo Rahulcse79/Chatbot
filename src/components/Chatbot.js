@@ -22,7 +22,7 @@ export default function Chatbot() {
     localStorage.setItem("userName",JSON.stringify(name));
     setTimeout(() => {
       navigate("/Page3");
-    }, 500);
+    }, 5000);
   }
 
 
@@ -51,7 +51,6 @@ export default function Chatbot() {
       startAge = endAge + 1;
       endAge += 6;
     }
-  
     return items;
   }
 

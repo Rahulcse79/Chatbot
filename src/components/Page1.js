@@ -9,7 +9,7 @@ export default function Page1() {
     localStorage.clear();
     setTimeout(() => {
       navigate("/Chatbot");
-    }, 300);
+    }, 3000);
     localStorage.setItem("user",JSON.stringify("I am Rahul"));
   }  
 
