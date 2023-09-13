@@ -2,16 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -35,4 +25,120 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Navbar{
+  background-color: aqua;
+  margin-top: 0;
+  padding: 2px;
+  border: 1px solid aliceblue;
+  display: 'flex'; 
+  width: auto;
+  height: 60px;
+}
+
+.Navbar2{
+  margin-top: 40px;
+  padding: 2px;
+  border: 1px solid aliceblue;
+  display: 'flex';
+  display: flex;
+  align-items: center; 
+  margin-bottom: 40px;
+}
+
+.Nav21{
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.Navbar1{
+  margin-right: 20px;
+}
+
+.Navbar2{
+  margin-left: 20px;
+}
+
+.button1{
+  color: black;
+    border: 1px solid blue;
+    background-color: #21d3f3;
+    margin: 20px;
+    padding: 10px;
+    margin-left: 75%;
+}
+
+.button1name{
+  color: black;
+  border: 1px solid #9999c3;
+  background-color: #ffffff;
+  margin: 20px;
+  padding: 10px;
+  margin-left: 70%;
+}
+.button12{
+  color: black;
+    border: 1px solid blue;
+    background-color: #21d3f3;
+    margin: 20px;
+    padding: 10px;
+ 
+}
+.button13{
+  color: black;
+    border: 1px solid blue;
+    background-color: #21d3f3;
+    margin: 20px;
+    padding: 10px;
+    margin-left: 5%;
+}
+
+.head1{
+  color: black;
+  margin-left: 0px;
+  margin-top: 20px;
+  padding: 1px;
+  border: 1px solid white;
+}
+
+.classbot{
+  color: black;
+  width: 400px;
+  margin-left: 30px;
+  height: 25px;
+  margin-top: 50px;
+  margin-left: 150px;
+  margin-bottom: 10px;
+  background-color: #10fac0;
+}
+
+.classbot1{
+  border: 1px solid cadetblue;
+  color: black;
+  width: 400px;
+  margin-left: 30px;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #10fac0;
+}
+
+.lastCall{
+  color: black;
+  background-color: #10fac0;
+  width: 500px;
+  margin-left: auto;
+  border: 1px solid #37cfb8;
+}
+
+.buttonextra{
+  border: 1px solid cadetblue;
+  color: black;
+  width: 150px;
+  margin-left: 30px;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #138cf3;
 }
