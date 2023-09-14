@@ -211,6 +211,14 @@
   color: black;
 }
 
+.heading{
+  padding: 0px;
+  color: black;
+  margin-top: 18px;
+  margin-left: 25px;
+ 
+}
+
 .Ubutton1{
 color: black;
 border: 1px solid #5b5bf8;

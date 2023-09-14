@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Dropdown } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
-import logoImage from './logo2.jpeg';
+import logoImage from "./logo2.jpeg";
+import Navbar from "./Navbar";
 
 export default function Chatbot() {
   const navigate = useNavigate();
@@ -14,16 +15,22 @@ export default function Chatbot() {
   const [showTime33, setShowTime33] = useState(false);
   const [showTime333, setShowTime333] = useState(false);
   const [nameCall1, setnameCall1] = useState(false);
-  const [ageCall1, setAgeCall1] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [age, setAge] = useState(null);
-  const [on,setOff]=useState(false);
-  const [ageName,setAgeName]=useState(false);
+  const [showAge, setShowAge] = useState(false);
+  const [ageName, setAgeName] = useState(false);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "black";
+    return () => {
+      document.body.style.backgroundColor = "";
+    };
+  }, []);
 
   const handleGotItClick = () => {
     setMessage1(
-      <nav className="Uclassbot2" >
-        <img src={logoImage} alt="Logo" className="UImage1"/>
+      <nav className="Uclassbot2">
+        <img src={logoImage} alt="Logo" className="UImage1" />
         <p className="Uclassbotname2A"> Bot: &nbsp; Pick a slot !</p>
       </nav>
     );
@@ -49,14 +56,9 @@ export default function Chatbot() {
     return buttons;
   };
 
-  const ageCall = () => {
-    setAgeCall1(true);
-  };
-
-  const ageCallKey = (e) => {
+  const onNameEnter = (e) => {
     if (e.key === "Enter") {
-      ageCall();
-      setAgeName(true);
+      setShowAge(true);
     }
   };
 
@@ -90,52 +92,57 @@ export default function Chatbot() {
     setCurrentDate(newDate);
   };
 
-  const offCallFun=()=>{
-    on?setOff(false):setOff(true);
-  }
-
-  const AgeSelect = () => {
-    localStorage.setItem("userAge", JSON.stringify(age));
+  const updateAge = (_, data) => {
+    console.log("here => ", data.value);
+    localStorage.setItem("userAge", JSON.stringify(data.value));
     localStorage.setItem("userName", JSON.stringify(name));
-
+    setAge(data.value);
+    setShowAge(false);
     setTimeout(() => {
       navigate("/Page3");
     }, 5000);
   };
 
-  const ageComponent = (showComponent) => {
-    if (showComponent) {
-       let ageOptions = [...Array(23).keys()].map((e) => {
-        let v = e + 18;
-        return { key: v, text: v, value: v };
-      });
-      return (
-        <Dropdown
-          fluid
-          selection
-          options={ageOptions}
-          onChange={AgeSelect}
-          className="underDropdown"
-        />
-      );
-    } else {
-      return <></>;
-    }
+  const ageComponent = () => {
+    let ageOptions = [...Array(23).keys()].map((e) => {
+      let v = e + 18;
+      return { key: v, text: v, value: v };
+    });
+    return (
+      <Dropdown
+        fluid
+        selection
+        options={ageOptions}
+        onChange={updateAge}
+        className="underDropdown"
+      />
+    );
   };
 
   return (
     <div>
+      <Navbar />
       <nav className="Uclassbot2">
-      <img src={logoImage} alt="Logo" className="UImage1"/>
-        <p className="Uclassbotname2"> Bot: &nbsp; Hello, Welcome to student info system! </p>
+        <img src={logoImage} alt="Logo" className="UImage1" />
+        <p className="Uclassbotname2">
+          {" "}
+          Bot: &nbsp; Hello, Welcome to student info system!{" "}
+        </p>
       </nav>
       <Button className="button1A" type="Button" onClick={handleGotItClick}>
         Got it!
       </Button>
       {message1}
       {showCalendar && (
-        <nav className="Uclassbot2A2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <img src={logoImage} alt="Logo" className="UImage1A2"/>
+        <nav
+          className="Uclassbot2A2"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <img src={logoImage} alt="Logo" className="UImage1A2" />
           <Button
             className="button12"
             onClick={() => navigateDate("prev")}
@@ -163,8 +170,15 @@ export default function Chatbot() {
       )}
 
       {showTime1 && (
-        <nav className="Uclassbot2A2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <img src={logoImage} alt="Logo" className="UImage1A2"/>
+        <nav
+          className="Uclassbot2A2"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <img src={logoImage} alt="Logo" className="UImage1A2" />
           <Button
             type="Button"
             onClick={showTime2}
@@ -173,31 +187,80 @@ export default function Chatbot() {
           >
             Morning
           </Button>
-          <Button type="Button" onClick={showTime22} className="navunderbuttonA2">
+          <Button
+            type="Button"
+            onClick={showTime22}
+            className="navunderbuttonA2"
+          >
             Afternoon
           </Button>
-          <Button type="Button" onClick={showTime222} className="navunderbuttonA2">
+          <Button
+            type="Button"
+            onClick={showTime222}
+            className="navunderbuttonA2"
+          >
             Evening
           </Button>
         </nav>
       )}
 
-      {showTime3 && <nav className="Uclassbot2A22" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <img src={logoImage} alt="Logo" className="UImage1A22"/>
-      {genTime(6, 11)}</nav>}
-      {showTime33 && <nav className="Uclassbot2A22" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} ><img src={logoImage} alt="Logo" className="UImage1A2"/>{genTime(12, 17)}</nav>}
-      {showTime333 && <nav className="Uclassbot2A22" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><img src={logoImage} alt="Logo" className="UImage1A2"/>{genTime(18, 23)}</nav>}
+      {showTime3 && (
+        <nav
+          className="Uclassbot2A22"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <img src={logoImage} alt="Logo" className="UImage1A22" />
+          {genTime(6, 11)}
+        </nav>
+      )}
+      {showTime33 && (
+        <nav
+          className="Uclassbot2A22"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <img src={logoImage} alt="Logo" className="UImage1A2" />
+          {genTime(12, 17)}
+        </nav>
+      )}
+      {showTime333 && (
+        <nav
+          className="Uclassbot2A22"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <img src={logoImage} alt="Logo" className="UImage1A2" />
+          {genTime(18, 23)}
+        </nav>
+      )}
 
       {nameCall1 && (
         <div>
-          <nav className="Uclassbot22" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <img src={logoImage} alt="Logo" className="UImage1A2"/>
+          <nav
+            className="Uclassbot22"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <img src={logoImage} alt="Logo" className="UImage1A2" />
             <p className="Uclassbotname2A22"> Bot: &nbsp; Enter your Name </p>
           </nav>
-          <nav className="userU" >
+          <nav className="userU">
             <input
               className="Name2121"
-              onKeyPress={ageCallKey}
+              onKeyPress={onNameEnter}
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -207,22 +270,45 @@ export default function Chatbot() {
         </div>
       )}
 
-        { ageName && (<nav className="Uclassbot2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <img src={logoImage} alt="Logo" className="UImage1A2"/>
-            <p className="Uclassbotname2A22"> Bot: &nbsp; Enter your Age </p>
-          </nav>)}
-
-        {ageName && (<button type="button" className="underDropdown121" onClick={offCallFun}>Age &nbsp; v</button>)}
-          
-      {on && (ageComponent(ageCall1))}
-
-      {(age>17) && (
-        <nav className="Uclassbot2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <img src={logoImage} alt="Logo" className="UImage1A2"/>
-          <p className="Uclassbotname2A2121"> Bot: &nbsp; Thank you </p>
+      {ageName && (
+        <nav
+          className="Uclassbot2"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <img src={logoImage} alt="Logo" className="UImage1A2" />
+          <p className="Uclassbotname2A22"> Bot: &nbsp; Enter your Age </p>
         </nav>
       )}
 
+      {ageName && (
+        <button
+          type="button"
+          className="underDropdown121"
+          onClick={(_) => setShowAge(true)}
+        >
+          Age &nbsp; v
+        </button>
+      )}
+
+      {showAge && ageComponent()}
+
+      {age > 17 && (
+        <nav
+          className="Uclassbot2"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <img src={logoImage} alt="Logo" className="UImage1A2" />
+          <p className="Uclassbotname2A2121"> Bot: &nbsp; Thank you </p>
+        </nav>
+      )}
     </div>
   );
 }

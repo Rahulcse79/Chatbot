@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import Navbar2 from './Navbar2';
 
 export default function Page3() {
 
@@ -14,6 +15,7 @@ const ClickHere = () => {
 
   return (
     <div>
+      <Navbar2/>
       <nav className='lastCall'>
       <h1 className='lastCallText'> Your name {name} aged {age} has been added to student system. You may now exit.</h1>
       {clear}

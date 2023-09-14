@@ -1,6 +1,7 @@
-import React,{ useState } from 'react'
+import React,{ useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import Spiner from './Spiner';
+import Navbar2 from './Navbar2';
 
 export default function Page1() {
 
@@ -21,6 +22,7 @@ export default function Page1() {
   return (
     <div>
       <>
+      <Navbar2/>
       <nav className='Uclassbot'>
         <h2 className='.Uclassbotname' style={{marginTop: "4px"}}>Enter into Student Info System</h2>
       </nav>
