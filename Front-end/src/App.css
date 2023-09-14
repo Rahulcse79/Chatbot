@@ -37,6 +37,27 @@
   height: 60px;
 }
 
+.Uclassbot22{
+  color: black;
+    background-color: #10fac0;
+    width: 452px;
+    padding: 5px;
+    margin-top: 80px;
+    margin-left: 93px;
+    border: 2px solid powderblue;
+    height: 44px;
+}
+
+.NavbarA2{
+  background-color: aqua;
+  margin-top: 265px;
+  padding: 2px;
+  border: 1px solid aliceblue;
+  display: 'flex'; 
+  width: auto;
+  height: 60px;
+}
+
 .Navbar2{
   margin-top: 40px;
   padding: 2px;
@@ -83,7 +104,11 @@
     background-color: #21d3f3;
     margin: 20px;
     padding: 10px;
- 
+    margin-left: 33px;
+    margin-top: 20px;
+    width: 40px;
+    height: 39px;
+    cursor: pointer;
 }
 .button13{
   color: black;
@@ -92,6 +117,45 @@
     margin: 20px;
     padding: 10px;
     margin-left: 5%;
+    width: 35px;
+    height: 38px;
+}
+.UImage1A2{
+  width: 56px;
+  height: 44px;
+  margin-left: 0px;
+  margin-top: 0px;
+  border: 1px solid blue;
+}
+
+.UImage1A22{
+  width: 56px;
+  height: 44px;
+  margin-left: 1px;
+  margin-top: 0px;
+  border: 1px solid blue;
+}
+
+.Uclassbot2A2{
+  color: black;
+  background-color: #10fac0;
+  width: 662px;
+  padding: 5px;
+  margin-top: 77px;
+  margin-left: 93px;
+  border: 2px solid powderblue;
+  height: 44px;
+}
+
+.Uclassbot2A22{
+  color: black;
+  background-color: #10fac0;
+  width: 662px;
+  padding: 5px;
+  margin-top: 77px;
+  margin-left: 93px;
+  border: 2px solid powderblue;
+  height: 44px;
 }
 
 .head1{
@@ -102,15 +166,124 @@
   border: 1px solid white;
 }
 
-.classbot{
+.Uclassbot{ 
+  color: black;
+  width: 460px;
+  height: 43px;
+    margin-top: 33px;
+    margin-left: 100px;
+    background-color: #10fac0;
+    padding: 10px;
+    border: 2px solid powderblue;
+}
+
+.navunderbutton{
+    border: 1px solid cadetblue;
+    color: black;
+    width: 400px;
+    margin-left: 25px;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #138cf3;
+    cursor: pointer;
+}
+
+.navunderbuttonA2{
+  border: 1px solid cadetblue;
   color: black;
   width: 400px;
-  margin-left: 30px;
+  margin-left: 12px;
   height: 25px;
-  margin-top: 50px;
-  margin-left: 150px;
+  margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 19px;
+  background-color: #138cf3;
+  cursor: pointer;
+}
+
+
+.Uclassbotname{
+  padding: 1px;
+  width: 400px;
+  margin-left: 0px;
+  margin-top: 6px;
+  color: black;
+}
+
+.Ubutton1{
+color: black;
+border: 1px solid #5b5bf8;
+background-color: #21d3f3;
+margin: 20px;
+padding: 10px;
+margin-left: 1120px;
+cursor: pointer;
+margin-top: 40px;
+}
+
+.Ubutton12{
+  color: black;
+    border: 1px solid #5b5bf8;
+    background-color: #21d3f3;
+    margin: 20px;
+    padding: 10px;
+    margin-left: 946px;
+    cursor: pointer;
+    margin-top: 40px;
+    width: 92px;
+    height: 42px;
+  }
+
+.Uclassbotname2A{
+  margin-top: -36px;
+  margin-left: -174px;
+  color: black;
+}
+
+.Uclassbot2{
+  color: black;
   background-color: #10fac0;
+  width: 452px;
+  padding: 5px;
+  margin-top: 40px;
+  margin-left: 93px;
+  border: 2px solid powderblue;
+  height: 44px;
+}
+
+.Uclassbotname2{
+  color: black;
+  padding: 0px;
+  margin-left: 26px;
+  margin-top: -38px;
+}
+
+.UImage1{
+  width: 56px;
+  height: 44px;
+  margin-left: -394px;
+  margin-top: 0px;
+  border: 1px solid blue;
+}
+
+.Navbar1A{
+  margin-right: 42px;
+  border: 1px solid aqua;
+  margin-top: 18px;
+  background-color: aqua;
+}
+
+.button1A{
+  color: black;
+    border: 1px solid #5b5bf8;
+    background-color: #21d3f3;
+    margin: 20px;
+    padding: 10px;
+    width: 101px;
+    height: 46px;
+    margin-left: 75%;
+    cursor: pointer;
 }
 
 .classbot1{
@@ -124,13 +297,34 @@
   background-color: #10fac0;
 }
 
+.lastcallText{
+      color: black;
+    width: 1060px;
+    height: 71px;
+    margin-top: 33px;
+    margin-left: 100px;
+    background-color: #10fac0;
+    padding: 10px;
+    border: 2px solid powderblue;
+}
+
 .lastCall{
   color: black;
-    background-color: #10fac0;
-    width: 500px;
-    margin-left: 40px;
-    border: 1px solid #37cfb8;
-    margin-top: 50px;
+  width: 1060px;
+  height: 71px;
+  margin-top: 33px;
+  margin-left: 100px;
+  background-color: #10fac0;
+  padding: 10px;
+  border: 2px solid powderblue;
+}
+
+.Uclassbotname2A2121{
+  color: black;
+  margin-right: 258px;
+  margin-top: 20px;
+  padding: 0px;
+
 }
 
 .buttonextra2{
@@ -150,6 +344,47 @@
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #138cf3;
+  cursor: pointer;
+}
+.Uclassbotname2A22{
+  color: black;
+    margin-right: 209px;
+    margin-top: 15px;
+    padding: 0px;
+}
+
+.userU{
+  color: black;
+    background-color: #21d3f3;
+    width: 283px;
+    height: 41px;
+    margin-left: 73%;
+    margin-top: 15px;
+    border: 1px solid #5b5bf8;
+
+}
+
+.Name2121{
+  color: black;
+    border: 1px solid #9999c3;
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 10px;
+    margin-left: 8%;
+    margin-top: 10px;
+    width: 219px;
+    height: 2px;
+}
+
+.underDropdown{
+  color: black;
+    background-color: #21d3f3;
+    width: 60px;
+    margin-left: 80%;
+    border: 1px solid #5b5bf8;
+    margin-top: 20px;
+    height: 550px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
@@ -164,8 +399,17 @@
   height: 70px;
 }
 
-.button1name{
-  margin-left: 90%;
+
+.classbot{
+  color: black;
+  width: 400px;
+  margin-left: 30px;
+  height: 25px;
+  margin-top: 50px;
+  margin-left: 150px;
+  margin-bottom: 10px;
+  background-color: #10fac0;
 }
+
 
 }
