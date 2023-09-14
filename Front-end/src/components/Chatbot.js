@@ -16,7 +16,6 @@ export default function Chatbot() {
   const [nameCall1, setnameCall1] = useState(false);
   const [ageCall1, setAgeCall1] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [callThanks, setCallThanks] = useState(false);
   const [age, setAge] = useState(null);
   const [on,setOff]=useState(false);
   const [ageName,setAgeName]=useState(false);
@@ -96,12 +95,11 @@ export default function Chatbot() {
   }
 
   const AgeSelect = () => {
-    setCallThanks(true);
     localStorage.setItem("userAge", JSON.stringify(age));
     localStorage.setItem("userName", JSON.stringify(name));
 
     setTimeout(() => {
-    //  navigate("/Page3");
+      navigate("/Page3");
     }, 5000);
   };
 
@@ -218,7 +216,7 @@ export default function Chatbot() {
           
       {on && (ageComponent(ageCall1))}
 
-      {callThanks && (
+      {(age>17) && (
         <nav className="Uclassbot2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <img src={logoImage} alt="Logo" className="UImage1A2"/>
           <p className="Uclassbotname2A2121"> Bot: &nbsp; Thank you </p>
