@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Dropdown } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
 import logoImage from './logo2.jpeg';
-import Spiner from './Spiner';
 
 export default function Chatbot() {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState("");
   const [message1, setMessage1] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
@@ -20,19 +18,8 @@ export default function Chatbot() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [callThanks, setCallThanks] = useState(false);
   const [age, setAge] = useState(null);
-
-  const AgeSelect = () => {
-    setCallThanks(true);
-    setIsLoading(true);
-    localStorage.setItem("userAge", JSON.stringify(age));
-    localStorage.setItem("userName", JSON.stringify(name));
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 4990);
-    setTimeout(() => {
-      navigate("/Page3");
-    }, 5000);
-  };
+  const [on,setOff]=useState(false);
+  const [ageName,setAgeName]=useState(false);
 
   const handleGotItClick = () => {
     setMessage1(
@@ -70,6 +57,7 @@ export default function Chatbot() {
   const ageCallKey = (e) => {
     if (e.key === "Enter") {
       ageCall();
+      setAgeName(true);
     }
   };
 
@@ -103,6 +91,20 @@ export default function Chatbot() {
     setCurrentDate(newDate);
   };
 
+  const offCallFun=()=>{
+    on?setOff(false):setOff(true);
+  }
+
+  const AgeSelect = () => {
+    setCallThanks(true);
+    localStorage.setItem("userAge", JSON.stringify(age));
+    localStorage.setItem("userName", JSON.stringify(name));
+
+    setTimeout(() => {
+    //  navigate("/Page3");
+    }, 5000);
+  };
+
   const ageComponent = (showComponent) => {
     if (showComponent) {
        let ageOptions = [...Array(23).keys()].map((e) => {
@@ -111,8 +113,6 @@ export default function Chatbot() {
       });
       return (
         <Dropdown
-          placeholder={"Age"}
-          style={{ innerWidth: "600px" }}
           fluid
           selection
           options={ageOptions}
@@ -124,7 +124,6 @@ export default function Chatbot() {
       return <></>;
     }
   };
-
 
   return (
     <div>
@@ -210,14 +209,14 @@ export default function Chatbot() {
         </div>
       )}
 
-      {setName===null?
-      <>
-      <nav className="Uclassbot2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        { ageName && (<nav className="Uclassbot2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <img src={logoImage} alt="Logo" className="UImage1A2"/>
             <p className="Uclassbotname2A22"> Bot: &nbsp; Enter your Age </p>
-          </nav> </>:<></>}
+          </nav>)}
 
-      {ageComponent(ageCall1)}
+        {ageName && (<button type="button" className="underDropdown121" onClick={offCallFun}>Age &nbsp; v</button>)}
+          
+      {on && (ageComponent(ageCall1))}
 
       {callThanks && (
         <nav className="Uclassbot2" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -225,7 +224,7 @@ export default function Chatbot() {
           <p className="Uclassbotname2A2121"> Bot: &nbsp; Thank you </p>
         </nav>
       )}
-       {isLoading && <Spiner />}
+
     </div>
   );
 }

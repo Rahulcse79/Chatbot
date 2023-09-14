@@ -379,12 +379,23 @@ margin-top: 40px;
 .underDropdown{
   color: black;
     background-color: #21d3f3;
-    width: 60px;
+    width: 61px;
     margin-left: 80%;
     border: 1px solid #5b5bf8;
-    margin-top: 20px;
+    margin-top: 0px;
     height: 550px;
     cursor: pointer;
+}
+
+.underDropdown121{
+  color: black;
+  background-color: #21d3f3;
+  width: 89px;
+  margin-left: 65%;
+  border: 1px solid #5b5bf8;
+  margin-top: 20px;
+  height: 37px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
